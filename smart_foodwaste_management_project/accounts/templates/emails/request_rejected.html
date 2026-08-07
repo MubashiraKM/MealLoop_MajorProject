@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Dear {{ receiver.first_name }},</p>
+
+  <p>We wanted to inform you that your request for the food donation <strong>"{{ donation.item_name }}"</strong> has unfortunately been <strong>rejected</strong>.</p>
+
+  <p>This could be due to:</p>
+  <ul>
+    <li>The donation has already been claimed by another receiver.</li>
+    <li>The donor has decided to withdraw their donation.</li>
+    <li>Your request did not meet certain criteria set by the donor.</li>
+  </ul>
+
+  <hr>
+  <strong>Donation Details:</strong><br>
+  🍲 Food: {{ donation.item_name }}<br>
+  🙋 Donor: {{ donation.full_name }}<br>
+  📅 Date of Request: {{ receiver.requests_made.last.created_at|date:"M d, Y H:i" }}
+
+  <hr>
+  New donations are added regularly — check our platform for available donations.
+
+  <p>Warm regards,<br>
+  <strong>{{ project_name }}</strong> Team</p>
+</body>
+</html>

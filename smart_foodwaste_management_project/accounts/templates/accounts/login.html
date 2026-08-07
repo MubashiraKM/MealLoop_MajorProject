@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register and Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'accounts/login.css' %}?v=2">
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url("{% static 'accounts/login_img.png' %}");
+            background-size: cover;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-text h1 {
+            font-size: 36px;
+            color: #fff;
+            margin: 0;
+        }
+
+        .header-text p {
+            font-size: 18px;
+            color: #f0f0f0;
+            margin: 5px 0 0 0;
+        }
+
+        .error-message {
+            color: #ff4444;
+            font-size: 14px;
+            /* margin-top: 5px; */
+            text-align: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Heading & Tagline -->
+    <div class="header-text">
+        <h1>Welcome to MealLoop</h1>
+        <p>Giving food a second life!</p>
+    </div>
+
+    <!-- Sign Up Container -->
+    <div class="container" id="signUp" style="display: none;">
+        <h1 class="form-title">Register</h1>
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="fName" id="fName" placeholder="FirstName" required>
+                <label for="fName">FirstName</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="lName" id="lName" placeholder="LastName" required>
+                <label for="lName">LastName</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="password" required>
+                <label for="password">Password</label>
+            </div>
+            <input type="submit" class="btn" value="Sign Up" name="signup">
+        </form>
+
+        <div class="links">
+            <p>Already Have Account ?</p>
+            <button id="signInButton">Sign In</button>
+        </div>
+    </div>
+
+    <!-- Sign In Container -->
+    <div class="container" id="signIn">
+        <h1 class="form-title">Sign In</h1>
+        <form method="post" action="{% url 'login_user' %}">
+            {% csrf_token %}
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" id="login_email" placeholder="Email" required>
+                <label for="login_email">Email</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="login_password" placeholder="password" required>
+                <label for="login_password">Password</label>
+            </div>
+
+            {% if login_error %}
+                <p class="error-message">{{ login_error }}</p>
+            {% endif %}
+
+            <input type="submit" class="btn" value="Sign In" name="signIn">
+        </form>
+
+        <div class="links">
+            <p>Don't have account yet ?</p>
+            <button id="signUpButton">Sign Up</button>
+        </div>
+    </div>
+
+    <script src="{% static 'accounts/login.js' %}"></script>
+    <script>
+        const showSignIn = "{{ show_signin|default:False }}";
+        if (showSignIn === "True") {
+            document.getElementById("signUp").style.display = "none";
+            document.getElementById("signIn").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+{% endblock %}

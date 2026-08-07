@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; color: #333;">
+  <p>Dear {{ item.user.first_name|default:item.user.username }},</p>
+
+  <p>Heads up! One of your food items will <strong>expire soon — in about 2 days</strong>.  
+  It’s the perfect time to whip up something delicious using it before it goes bad. 😋</p>
+
+  <hr>
+
+  <p><strong>Food Item Details:</strong></p>
+  <ul>
+    <li>🥕 <strong>Item Name:</strong> {{ item.item_name }}</li>
+    <li>📅 <strong>Expiry Date:</strong> {{ item.expiry_date }}</li>
+  </ul>
+
+  <hr>
+
+  <p>Need some inspiration? Discover creative ways to use your ingredients and turn them into tasty, waste-free meals. 🍲</p>
+
+  <p>
+    👉 <a href="https://localhost:5173/recipes/public/index.html" style="color:#e67e22;">Explore Recipe Ideas</a>
+  </p>
+
+  <p>Cooking smart helps you save money, reduce waste, and enjoy every bite — thank you for making a difference! 💚</p>
+
+  <p>Warm regards,<br>
+  <strong>The Smart Food Waste Management Team</strong><br>
+  Turning food waste into nature’s treasure.</p>
+</body>
+</html>

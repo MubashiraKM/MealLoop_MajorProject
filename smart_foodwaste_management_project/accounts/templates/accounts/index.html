@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    
+.hero {
+  position: relative;
+}
+
+.back-home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ffa500; /* orange on hover */
+  color: #000; /* black text */
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  z-index: 9999; /* 👈 highest priority */
+}
+
+.back-home-btn i {
+  font-size: 16px;
+}
+
+.back-home-btn:hover {
+  background: #000; /* black button background */
+  color: #ffa500; /* orange text/icon */
+  transform: scale(1.05);
+}
+
+  </style>
+  <meta charset="UTF-8">
+  <title>Food Donation Platform</title>
+  <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+
+    <a href="http://localhost:5173/index.html" class="back-home-btn">
+    <i class="fas fa-arrow-left"></i> Back Home
+  </a>
+
+
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Give a helping hand to those who need it!</h1>
+      <p>Donate excess food to reduce waste and support people in need.</p>
+      <div class="btn-group">
+        <a href="{% url 'donation_form' %}"><button type="button">Donate Food</button></a>
+        <a href="{% url 'my_donations' %}"><button type="button">My Donations</button></a>
+        <a href="{% url 'donation_listings' %}"><button type="button">Available Donations</button></a>
+        <a href="{% url 'my_requests' %}"><button type="button">My Requests</button></a>
+        <a href="{% url 'donation_requests_for_my_listings' %}"><button type="button">Requests for My Donation</button></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Vision & Mission Section -->
+  <section class="info-section">
+    <div class="info-box orange-border">
+      <h2>Our Vision</h2>
+      <p>To create a community where no food goes to waste and everyone has access to nutritious meals. We envision a world where surplus food is shared responsibly, hunger is minimized, and sustainability becomes a natural part of everyday life.</p>
+    </div>
+    <div class="info-box green-border">
+      <h2>Our Mission</h2>
+      <p>We connect donors and receivers to ensure surplus food reaches those who need it most. Through a simple, efficient, and safe process, we aim to reduce food waste, fight hunger, and create a network of kindness and generosity.</p>
+    </div>
+  </section>
+
+  <!-- Help Today Section -->
+  <section class="help-today">
+    <h2>Help Today</h2>
+    <div class="help-options">
+
+      <a href="{% url 'donation_form' %}">
+        <div class="help-card">
+          <div class="icon"><i class="fas fa-utensils"></i></div>
+          <h3>Donate Food</h3>
+        </div>
+      </a>
+
+      <a href="{% url 'donation_listings' %}">
+        <div class="help-card">
+          <div class="icon"><i class="fas fa-clipboard-list"></i></div>
+          <h3>Available Donations</h3>
+        </div>
+      </a>
+
+      <a href="{% url 'my_donations' %}">
+        <div class="help-card">
+          <div class="icon"><i class="fas fa-coins"></i></div>
+          <h3>My Listings</h3>
+        </div>
+      </a>
+
+      <a href="{% url 'my_requests' %}">
+        <div class="help-card">
+          <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
+          <h3>My Requests</h3>
+        </div>
+      </a>
+
+      <a href="{% url 'donation_requests_for_my_listings' %}">
+        <div class="help-card">
+          <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Requests for My Listings</h3>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Why Donate Section -->
+  <section class="why-donate">
+    <div class="why-donate-content">
+      <h2>Why Donate Food?</h2>
+      <p>
+        Food donation isn’t just about helping the poor — it’s about 
+        building a sustainable community. Extra meals from households, 
+        restaurants, events, or workplaces can find their way to people 
+        who truly need them, whether it’s students, travelers, community 
+        groups, or anyone going through a tough time.
+      </p>
+
+      <div class="donate-benefits">
+        <div class="benefit-box">
+          <h3>🌍 Reduce Waste</h3>
+          <p>Every shared meal means less food in landfills and a healthier planet.</p>
+        </div>
+        <div class="benefit-box">
+          <h3>🤝 Build Community</h3>
+          <p>Connect with neighbors, organizations, and groups who can benefit from your generosity.</p>
+        </div>
+        <div class="benefit-box">
+          <h3>💚 Share Kindness</h3>
+          <p>A simple act of giving can bring joy, relief, and hope to someone’s day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="about-footer">
+    <div class="about-footer-content">
+      <h2>About Us</h2>
+      <p>
+        Our mission is simple — to <strong>reduce food waste</strong> and ensure 
+        no one sleeps hungry. Through this platform, we connect generous donors 
+        with people in need, creating a community built on kindness, 
+        sustainability, and sharing.
+      </p>
+      <p>
+        Every meal donated is a step toward a better tomorrow. Together, 
+        we can make a real difference!
+      </p>
+      <!-- <div class="footer-socials">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p class="footer-credit">© 2025 Food Donation Platform | All Rights Reserved</p>
+    </div> -->
+  </footer>
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Food Expiry Alert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #e74c3c;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333333;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #000000;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .footer {
+            font-size: 12px;
+            color: #888888;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>⚠️ Food Expiry Alert</h2>
+        <p>Dear {{ food_item.user.first_name }},</p>
+
+        <p>Your food item "<span class="highlight">{{ food_item.item_name }}</span>" is expiring soon!</p>
+
+        <p>
+            <strong>Expiry Date:</strong> {{ food_item.expiry_date|date:"d/m/Y" }}<br>
+            <strong>Days Remaining:</strong> {{ food_item.days_until_expiry }}<br>
+            <strong>Quantity:</strong> {{ food_item.quantity|default:"N/A" }}<br>
+            <strong>Category:</strong> {{ food_item.category|default:"N/A" }}
+        </p>
+
+        <p>Please use or dispose of this item before it expires.</p>
+
+        <a class="button" href="http://localhost:8000/tracker/">View All Food Items</a>
+
+        <p class="footer">Smart Food Waste Management System</p>
+    </div>
+</body>
+</html>

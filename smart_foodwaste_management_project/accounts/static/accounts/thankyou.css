@@ -1,0 +1,79 @@
+/* Full-screen background image with overlay */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: url('food_donation_img1.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Semi-transparent overlay */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* black with 50% opacity */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centered thank-you content */
+.thankyou-container {
+    text-align: center;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4); /* optional slightly darker box */
+}
+
+.thankyou-container h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.thankyou-container p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Back to home button */
+.home-button {
+    display: block; /* makes each button take its own line */
+    padding: 12px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+    margin-bottom: 15px; /* space between buttons */
+}
+
+.home-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.back-home{
+    background-color:  white;
+    color:black;
+    padding:5px 10px 5px 10px;
+    text-decoration: None;
+    margin-left:20px;
+    border-radius: 10px;
+}
+.btn{
+    background-color:  white;
+    color:black;
+    padding:5px 20px 5px 20px;
+    text-decoration: None;
+    /* margin-left:30px; */
+    border-radius: 10px;
+    font-size:16px;
+    /* font-weight:600; */
+    border-radius: 20px;
+}

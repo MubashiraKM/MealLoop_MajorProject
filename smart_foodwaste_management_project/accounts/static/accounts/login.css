@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #e2e2e2, #c9dfc9);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 30px; /* less top padding */
+}
+
+/* Heading & Tagline above the box */
+.header-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-text h1 {
+    font-size: 32px;
+    color: #00441b; /* dark green */
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.header-text p {
+    font-size: 16px;
+    color: #006622; /* slightly lighter green */
+    font-style: italic;
+}
+
+/* Container box */
+.container {
+    background: #fff;
+    width: 400px; /* slightly narrower for small screens */
+    max-height: 80vh; /* limit height to viewport */
+    padding: 1.2rem;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+    overflow-y: auto; /* scroll if content is too tall */
+}
+
+/* Scrollbar styling for container */
+.container::-webkit-scrollbar {
+    width: 6px;
+}
+.container::-webkit-scrollbar-thumb {
+    background-color: #00441b;
+    border-radius: 3px;
+}
+
+/* Form styling */
+form {
+    margin: 0 1.5rem;
+}
+
+.form-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.8rem 0;
+    margin-bottom: 0.3rem;
+}
+
+.input-group {
+    padding: 0.2% 0; /* reduced */
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    top: 18px; /* slightly adjusted */
+    left: 3px;
+    color: black;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px 10px 42px; /* smaller padding */
+    font-size: 14px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 20px; /* reduced */
+}
+
+/* input:focus {
+    background-color: transparent;
+    outline: transparent;
+    border-bottom: 2px solid hsl(327, 90%, 28%);
+} */
+
+input::placeholder {
+    color: transparent;
+}
+
+label {
+    color: #757575;
+    position: relative;
+    left: 2em;
+    top: -2.8em; /* slightly adjusted */
+    cursor: auto;
+    transition: 0.3s ease all;
+}
+
+input:focus~label,
+input:not(:placeholder-shown)~label {
+    color: transparent;
+    transition: 0.2s;
+}
+
+/* Buttons */
+.btn {
+    font-size: 1rem;
+    padding: 10px 0;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    background: #00441b;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.3s;
+}
+
+/* .btn:hover {
+    background: #07071f;
+} */
+
+/* Links */
+.links {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 3rem;
+    margin-top: 0.8rem;
+    font-weight: bold;
+}
+
+button {
+    color: #00441b;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+button:hover {
+    text-decoration: underline;
+    color: #07001f;
+}
+
+/* Icons styling */
+.icons {
+    text-align: center;
+}
+
+.icons i {
+    color: rgb(125, 125, 235);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 2px solid #dfe9f5;
+    margin: 0 12px;
+    transition: 1s;
+}
+
+.icons i:hover {
+    background: #07001f;
+    font-size: 1.6rem;
+    border: 2px solid rgb(125, 125, 235);
+}

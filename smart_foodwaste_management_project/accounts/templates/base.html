@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Smart Food Waste Management{% endblock %}</title>
+
+  <!-- Optional global styles -->
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+  </style>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- 🌟 GLOBAL MESSAGE POPUP -->
+  {% if messages %}
+    <div id="messages" style="
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2000;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    ">
+      {% for message in messages %}
+        <div class="msg {{ message.tags }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+
+    <style>
+      .msg {
+        color: white;
+        padding: 14px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      }
+      .msg.error { background-color: #ff4d4d; }
+      .msg.success { background-color: #4CAF50; }
+      .msg.info { background-color: #2196F3; }
+    </style>
+
+    <script>
+      setTimeout(() => {
+        const box = document.getElementById('messages');
+        if (box) {
+          box.style.transition = "opacity 0.8s ease";
+          box.style.opacity = "0";
+          setTimeout(() => box.remove(), 800);
+        }
+      }, 4000);
+    </script>
+  {% endif %}
+
+  <!-- 🌐 Main Page Content -->
+  {% block content %}{% endblock %}
+
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Requests</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Main heading banner */
+  .main-heading {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    padding: 30px 20px;
+    /* background: url("{% static 'accounts/banner_bg.jpg' %}") no-repeat center center; */
+    background-size: cover;
+    position: relative;
+     background: linear-gradient(135deg, #FFCDD2, #F8BBD0, #E1BEE7, #BBDEFB, #C8E6C9, #FFF9C4);
+  }
+  .main-heading::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 0;
+  }
+  .main-heading span {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Back button */
+  .back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0,0,0,0.5);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s;
+    z-index: 2;
+  }
+  .back-btn:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  /* Columns container */
+  .columns {
+    display: flex;
+    gap: 15px;
+    margin: 20px;
+    flex-wrap: wrap;
+  }
+
+  .column {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 520px; /* fixed height for scroll */
+  }
+
+  .pending-column { background: #FFF9C4; }   /* Pastel Yellow */
+  .accepted-column { background: #C8E6C9; }  /* Pastel Green */
+  .rejected-column { background: #FFCDD2; }  /* Pastel Red */
+
+  /* Column headings */
+  .column h3 {
+    text-align: center;
+    margin: 0;
+    padding: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    position: relative;
+  }
+  .pending-column h3 { background-color: #FBC02D; }
+  .accepted-column h3 { background-color: #2E7D32; }
+  .rejected-column h3 { background-color: #C62828; }
+
+  /* Count badge */
+  .count-badge {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.8);
+    color: #333;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.9em;
+  }
+
+  /* Scrollable card container */
+  .scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+  }
+  .scroll-area::-webkit-scrollbar {
+    width: 8px;
+  }
+  .scroll-area::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 4px;
+  }
+  .scroll-area::-webkit-scrollbar-track {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+
+  /* Cards */
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .request-card {
+    width: 90%;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  }
+  .request-card h4 { margin-top: 0; font-size: 1.1em; }
+  .request-card p { margin: 4px 0; font-size: 0.9em; }
+
+  .status.pending { color: #FBC02D; font-weight: bold; }
+  .status.accepted { color: #388E3C; font-weight: bold; }
+  .status.rejected { color: #D32F2F; font-weight: bold; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 15px 10px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+    margin-top: auto;
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- Main Heading -->
+  <div class="main-heading">
+    <span>My Requests</span>
+    <a href="{% url 'donation_index' %}" class="back-btn">&#8592; Back</a>
+  </div>
+
+  <!-- Columns -->
+  <div class="columns">
+
+    <!-- Pending -->
+    <div class="column pending-column">
+      <h3>Pending Requests
+        <span class="count-badge">{{ counts.pending }}</span>
+      </h3>
+      <div class="scroll-area">
+        <div class="card-container">
+          {% for req in pending_requests %}
+          <div class="request-card">
+            <h4>{{ req.donation.item_name }}</h4>
+            <p><strong>Donor:</strong> {{ req.donation.full_name }}</p>
+            <p><strong>Date:</strong> {{ req.donation.pickup_datetime|default:"N/A" }}</p>
+            <p><strong>Food Type:</strong> {{ req.donation.food_type }}</p>
+            <p><strong>Pickup Location:</strong> {{ req.donation.drop_location|default:"N/A" }}</p>
+            <p class="status pending">Status: Pending</p>
+          </div>
+          {% empty %}
+          <p style="text-align:center;">No pending requests.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Accepted -->
+    <div class="column accepted-column">
+      <h3>Accepted Requests
+        <span class="count-badge">{{ counts.accepted }}</span>
+      </h3>
+      <div class="scroll-area">
+        <div class="card-container">
+          {% for req in accepted_requests %}
+          <div class="request-card">
+            <h4>{{ req.donation.item_name }}</h4>
+            <p><strong>Donor:</strong> {{ req.donation.full_name }}</p>
+            <p><strong>Date:</strong> {{ req.donation.pickup_datetime|default:"N/A" }}</p>
+            <p><strong>Food Type:</strong> {{ req.donation.food_type }}</p>
+            <p><strong>Pickup Location:</strong> {{ req.donation.drop_location|default:"N/A" }}</p>
+            <p class="status accepted">Status: Accepted</p>
+          </div>
+          {% empty %}
+          <p style="text-align:center;">No accepted requests.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Rejected -->
+    <div class="column rejected-column">
+      <h3>Rejected Requests
+        <span class="count-badge">{{ counts.rejected }}</span>
+      </h3>
+      <div class="scroll-area">
+        <div class="card-container">
+          {% for req in rejected_requests %}
+          <div class="request-card">
+            <h4>{{ req.donation.item_name }}</h4>
+            <p><strong>Donor:</strong> {{ req.donation.full_name }}</p>
+            <p><strong>Date:</strong> {{ req.donation.pickup_datetime|default:"N/A" }}</p>
+            <p><strong>Food Type:</strong> {{ req.donation.food_type }}</p>
+            <p><strong>Pickup Location:</strong> {{ req.donation.drop_location|default:"N/A" }}</p>
+            <p class="status rejected">Status: Rejected</p>
+          </div>
+          {% empty %}
+          <p style="text-align:center;">No rejected requests.</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &hearts;   Connecting donors and recipients to fight food waste together   &hearts;
+  </footer>
+
+</body>
+</html>
+{% endblock %}

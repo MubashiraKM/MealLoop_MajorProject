@@ -1,0 +1,16 @@
+{
+  "Cooked Food": {
+    "Rice": ["kg", "grams"],
+    "Chapati": ["pieces"],
+    "Curry": ["kg", "litres"]
+  },
+  "Raw Ingredients": {
+    "Rice": ["kg", "grams"],
+    "Wheat": ["kg", "grams"],
+    "Dal": ["kg", "grams"]
+  },
+  "Beverages": {
+    "Milk": ["litres", "ml"],
+    "Juice": ["litres", "ml"]
+  }
+}

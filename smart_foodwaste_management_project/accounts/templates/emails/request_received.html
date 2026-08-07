@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Dear {{ donation.donor.first_name }},</p>
+
+  <p>Good news! Someone has requested your food donation. 🎉</p>
+
+  <hr>
+  <strong>Request Details:</strong><br>
+  👤 Receiver Name: {{ receiver.get_full_name }}<br>
+  📅 Request Date: {{ receiver.requests_made.last.created_at|date:"M d, Y H:i" }}<br>
+  <strong>Donation Details:</strong><br>
+  🍲 Food: {{ donation.item_name }}<br>
+  📍 Pickup Location: {{ donation.drop_location }}<br>
+  🕒 Preferred Pickup Time: {{ donation.pickup_datetime|date:"M d, Y H:i" }}
+
+  <hr>
+  Please visit your dashboard to view the request and take action.
+
+  <p>Warm regards,<br>
+  <strong>{{ project_name }}</strong> Team<br>
+  Connecting surplus food with those who need it most.</p>
+</body>
+</html>

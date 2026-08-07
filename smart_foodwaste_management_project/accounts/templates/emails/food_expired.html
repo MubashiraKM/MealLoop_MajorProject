@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; color: #333;">
+  <p>Dear {{ item.user.first_name|default:item.user.username }},</p>
+
+  <p>We wanted to let you know that one of your food items has recently *expired*.  
+  But don’t worry — instead of throwing it away, you can turn it into something useful through composting! 🌱</p>
+
+  <hr>
+
+  <p><strong>Food Item Details:</strong></p>
+  <ul>
+    <li>🥕 <strong>Item Name:</strong> {{ item.item_name }}</li>
+    <li>📅 <strong>Expiry Date:</strong> {{ item.expiry_date }}</li>
+  </ul>
+
+  <hr>
+
+  <p>Composting helps reduce food waste and gives your expired food a new purpose — enriching soil and supporting the planet. 🌍</p>
+
+  <p>
+    👉 <a href="https://yourprojectdomain.com/compost-guide" style="color:#2e8b57;">Explore Compost Ideas</a>
+  </p>
+
+  <p>Thank you for doing your part to create a cleaner, greener world. 💚</p>
+
+  <p>Warm regards,<br>
+  <strong>The Smart Food Waste Management Team</strong><br>
+  Turning food waste into nature’s treasure.</p>
+</body>
+</html>

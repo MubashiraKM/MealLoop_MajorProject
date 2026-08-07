@@ -1,0 +1,357 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donation Listings</title>
+  <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+  <style>
+    /* 🌈 20 Pastel Theme Variables */
+    :root {
+      --pastel-purple: #e6d8f7;
+      --pastel-green: #d7f7df;
+      --pastel-blue: #d8ecff;
+      --pastel-pink: #ffe0eb;
+      --pastel-yellow: #fff6d1;
+      --pastel-peach: #ffe9d6;
+      --pastel-lavender: #f2e6ff;
+      --pastel-mint: #dffcf0;
+      --pastel-cyan: #d0f0ff;
+      --pastel-rose: #ffd6e0;
+      --pastel-lime: #f0ffd1;
+      --pastel-apricot: #ffe5cc;
+      --pastel-sky: #d1e8ff;
+      --pastel-blush: #ffe0d6;
+      --pastel-lilac: #ecd9ff;
+      --pastel-sea: #d1fff0;
+      --pastel-aqua: #ccf0ff;
+      --pastel-coral: #ffd9cc;
+      --pastel-gold: #fff3cc;
+      --pastel-lavenderpink: #f7d1ff;
+
+      --text-dark: #3d3a4b;
+      --text-light: #f0f0f0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      /* background: linear-gradient(180deg, #f9f7fc, #f3f7fd); */
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* 🌟 Banner Section */
+    .banner {
+      position: relative;
+      background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-pink), var(--pastel-yellow));
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--text-dark);
+      padding: 0 20px;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 1;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .banner h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .banner p {
+      font-size: 1.1rem;
+      color: #4a4458;
+    }
+
+    /* Back button */
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 8px 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      cursor: pointer;
+      z-index: 3;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .back-button:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Donation Count */
+    .donation-count {
+      text-align: center;
+      margin: 40px 0 10px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    /* Donation Cards */
+    .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px 20px 60px;
+  /* remove background-color line */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  border-radius: 20px;
+  /* optional blur */
+  /* backdrop-filter: blur(8px); */
+}
+
+    .donation-card {
+      border-radius: 15px;
+      width: 300px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      padding: 20px;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      color: var(--text-dark);
+    }
+
+    /* 🎨 Card backgrounds: 20 pastel shades */
+    .donation-card:nth-child(20n+1) { background-color: var(--pastel-purple); }
+    .donation-card:nth-child(20n+2) { background-color: var(--pastel-green); }
+    .donation-card:nth-child(20n+3) { background-color: var(--pastel-blue); }
+    .donation-card:nth-child(20n+4) { background-color: var(--pastel-pink); }
+    .donation-card:nth-child(20n+5) { background-color: var(--pastel-yellow); }
+    .donation-card:nth-child(20n+6) { background-color: var(--pastel-peach); }
+    .donation-card:nth-child(20n+7) { background-color: var(--pastel-lavender); }
+    .donation-card:nth-child(20n+8) { background-color: var(--pastel-mint); }
+    .donation-card:nth-child(20n+9) { background-color: var(--pastel-cyan); }
+    .donation-card:nth-child(20n+10) { background-color: var(--pastel-rose); }
+    .donation-card:nth-child(20n+11) { background-color: var(--pastel-lime); }
+    .donation-card:nth-child(20n+12) { background-color: var(--pastel-apricot); }
+    .donation-card:nth-child(20n+13) { background-color: var(--pastel-sky); }
+    .donation-card:nth-child(20n+14) { background-color: var(--pastel-blush); }
+    .donation-card:nth-child(20n+15) { background-color: var(--pastel-lilac); }
+    .donation-card:nth-child(20n+16) { background-color: var(--pastel-sea); }
+    .donation-card:nth-child(20n+17) { background-color: var(--pastel-aqua); }
+    .donation-card:nth-child(20n+18) { background-color: var(--pastel-coral); }
+    .donation-card:nth-child(20n+19) { background-color: var(--pastel-gold); }
+    .donation-card:nth-child(20n+20) { background-color: var(--pastel-lavenderpink); }
+
+
+    /* Button dark shades for 20 colors */
+.donation-card:nth-child(20n+1) button { background-color: #6b3fa0; }  /* purple */
+.donation-card:nth-child(20n+2) button { background-color: #3da35d; }  /* green */
+.donation-card:nth-child(20n+3) button { background-color: #1d82c4; }  /* blue */
+.donation-card:nth-child(20n+4) button { background-color: #d94a76; }  /* pink */
+.donation-card:nth-child(20n+5) button { background-color: #d1c64d; }  /* yellow */
+.donation-card:nth-child(20n+6) button { background-color: #e08c63; }  /* peach */
+.donation-card:nth-child(20n+7) button { background-color: #9b6bcc; }  /* lavender */
+.donation-card:nth-child(20n+8) button { background-color: #5bcf9a; }  /* mint */
+.donation-card:nth-child(20n+9) button { background-color: #1daedb; }  /* cyan */
+.donation-card:nth-child(20n+10) button { background-color: #d63b63; } /* rose */
+.donation-card:nth-child(20n+11) button { background-color: #b1c730; } /* lime */
+.donation-card:nth-child(20n+12) button { background-color: #e0844a; } /* apricot */
+.donation-card:nth-child(20n+13) button { background-color: #1692e6; } /* sky */
+.donation-card:nth-child(20n+14) button { background-color: #e68f7f; } /* blush */
+.donation-card:nth-child(20n+15) button { background-color: #9c6bcc; } /* lilac */
+.donation-card:nth-child(20n+16) button { background-color: #35c6a8; } /* sea */
+.donation-card:nth-child(20n+17) button { background-color: #33b8d9; } /* aqua */
+.donation-card:nth-child(20n+18) button { background-color: #e67a55; } /* coral */
+.donation-card:nth-child(20n+19) button { background-color: #d1b03f; } /* gold */
+.donation-card:nth-child(20n+20) button { background-color: #b36bcc; } /* lavenderpink */
+
+/* Hover effects for buttons */
+.donation-card:nth-child(20n+1) button:hover { background-color: #593487; }
+.donation-card:nth-child(20n+2) button:hover { background-color: #338c4b; }
+.donation-card:nth-child(20n+3) button:hover { background-color: #166da3; }
+.donation-card:nth-child(20n+4) button:hover { background-color: #b63b63; }
+.donation-card:nth-child(20n+5) button:hover { background-color: #b0ad40; }
+.donation-card:nth-child(20n+6) button:hover { background-color: #c77050; }
+.donation-card:nth-child(20n+7) button:hover { background-color: #824bb3; }
+.donation-card:nth-child(20n+8) button:hover { background-color: #45b582; }
+.donation-card:nth-child(20n+9) button:hover { background-color: #138fc3; }
+.donation-card:nth-child(20n+10) button:hover { background-color: #b8305a; }
+.donation-card:nth-child(20n+11) button:hover { background-color: #99a82b; }
+.donation-card:nth-child(20n+12) button:hover { background-color: #c96a32; }
+.donation-card:nth-child(20n+13) button:hover { background-color: #1376b3; }
+.donation-card:nth-child(20n+14) button:hover { background-color: #c36b5e; }
+.donation-card:nth-child(20n+15) button:hover { background-color: #824bb3; }
+.donation-card:nth-child(20n+16) button:hover { background-color: #2ea58f; }
+.donation-card:nth-child(20n+17) button:hover { background-color: #2999b3; }
+.donation-card:nth-child(20n+18) button:hover { background-color: #c65e47; }
+.donation-card:nth-child(20n+19) button:hover { background-color: #b39c33; }
+.donation-card:nth-child(20n+20) button:hover { background-color: #924bb3; }
+
+
+    .donation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.35);
+    }
+
+    .donation-card h3 {
+      margin-top: 0;
+      color: var(--text-dark);
+    }
+
+    .donation-card p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+
+    /* Buttons */
+    .donation-card button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .donation-card:nth-child(20n+1) button { background-color: #6b3fa0; }
+    .donation-card:nth-child(20n+1) button:hover { background-color: #593487; }
+
+    /* Repeat for other button colors if needed (same as previous code) */
+
+    /* Empty message */
+    .no-donations {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin: 40px 0;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <!-- Banner Section -->
+  <section class="banner">
+    <a class="back-button" href="{% url 'donation_index' %}">← Back</a>
+
+    <div class="banner-content">
+      <h1>Discover Fresh Food Donations</h1>
+      <p>Every donation helps fight hunger and reduces food waste in our community.</p>
+      
+    </div>
+  </section>
+
+  <!-- Donation Count -->
+  <h2 class="donation-count">{{ listings|length }} Donations Available</h2>
+
+  <!-- Donation Cards -->
+  <div class="card-container">
+    {% for donation in listings %}
+      {% if not request.GET.food_type or donation.food_type == request.GET.food_type %}
+      <div class="donation-card">
+        <h3>{{ donation.item_name }}</h3>
+        <p><strong>Donor:</strong> {{ donation.name }}</p>
+        <p><strong>Type:</strong> {{ donation.food_type }}</p>
+        <p><strong>Quantity:</strong> {{ donation.quantity }}</p>
+        <p><strong>Instructions:</strong> {{ donation.instructions|default:"None" }}</p>
+        <p><strong>Status:</strong> {{ donation.status }}</p>
+        <p><strong>Pickup Date/Time:</strong>
+          {% if donation.pickup_datetime %}
+            {{ donation.pickup_datetime|date:"d M Y, H:i" }}
+          {% else %}
+            Not specified
+          {% endif %}
+        </p>
+        <p><strong>Drop-off Location:</strong> {{ donation.drop_location|default:"Not specified" }}</p>
+
+        <!-- Request Button -->
+
+
+      <button type="button" onclick="openRequestModal('{{ donation.id }}')">Request Donation</button>
+  
+
+      </div>
+      {% endif %}
+    {% empty %}
+      
+    {% endfor %}
+  </div>
+
+
+<!-- Modal for entering receiver info -->
+<div id="requestModal" style="
+  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+  <div style="
+    background:white; padding:30px; border-radius:12px; width:90%; max-width:400px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3); position:relative;">
+    <h3 style="margin-top:0;">Request Donation</h3>
+    <form id="requestForm" method="POST">
+      {% csrf_token %}
+      <input type="hidden" id="donationIdInput" name="donation_id">
+
+      <label for="receiver_name">Your Name:</label><br>
+      <input type="text" id="receiver_name" name="receiver_name" required
+        style="width:100%; padding:8px; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;"><br>
+
+      <label for="receiver_contact">Phone Number:</label><br>
+      <input type="text" id="receiver_contact" name="receiver_contact" required
+        pattern="[0-9]{10}" title="Enter a 10-digit phone number"
+        style="width:100%; padding:8px; margin-bottom:10px; border-radius:6px; border:1px solid #ccc;"><br>
+
+      <button type="submit" style="
+        background-color:#6b3fa0; color:white; padding:10px; width:100%; border:none;
+        border-radius:6px; cursor:pointer;">Submit Request</button>
+    </form>
+    <button onclick="closeRequestModal()" style="
+      background:none; border:none; color:#555; position:absolute; top:10px; right:15px;
+      font-size:20px; cursor:pointer;">×</button>
+  </div>
+</div>
+
+<script>
+// function openRequestModal(donationId) {
+//   document.getElementById('requestModal').style.display = 'flex';
+//   document.getElementById('donationIdInput').value = donationId;
+// }
+
+function openRequestModal(donationId) {
+  document.getElementById('requestModal').style.display = 'flex';
+  document.getElementById('donationIdInput').value = donationId;
+}
+
+
+
+function closeRequestModal() {
+  document.getElementById('requestModal').style.display = 'none';
+}
+
+// Handle submission to correct URL dynamically
+document.getElementById('requestForm').addEventListener('submit', function(e) {
+  const donationId = document.getElementById('donationIdInput').value;
+  this.action = `/request_donation/${donationId}/`;  // Adjust this path if your URL differs
+});
+</script>
+
+
+
+</body>
+</html>
+{% endblock %}

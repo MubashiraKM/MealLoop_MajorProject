@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Dear {{ receiver.first_name }},</p>
+
+  <p>We’re happy to inform you that your request for the food donation <strong>"{{ donation.item_name }}"</strong> has been <strong>accepted</strong>! 🎉</p>
+
+  <hr>
+  <strong>Donor Details:</strong><br>
+  👤 Name: {{ donation.full_name }}<br>
+  📞 Phone: {{ donation.contact }}<br>
+  📧 Email: {{ donation.donor.email }}<br>
+  📍 Pickup Location: {{ donation.drop_location }}
+
+  <strong>Donation Details:</strong><br>
+  🍲 Food: {{ donation.item_name }}<br>
+  Quantity: {{ donation.quantity }}<br>
+  🕒 Pickup Time: {{ donation.pickup_datetime|date:"M d, Y H:i" }}<br>
+  Additional Notes: {{ donation.instructions }}
+
+  <hr>
+  Please contact the donor to arrange pickup.
+
+  <p>Thank you for helping reduce food waste!<br>
+  <strong>{{ project_name }}</strong> Team</p>
+</body>
+</html>

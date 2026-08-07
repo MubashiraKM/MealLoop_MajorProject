@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+      <link rel="stylesheet" href="{% static 'accounts/thankyou.css' %}">
+
+    <meta http-equiv="Cache-Control" content="no-store" />
+</head>
+
+
+<body>
+    <div class="overlay">
+        <div class="thankyou-container">
+            <h1>Thank You!</h1>
+            <p>Your donation will make a difference ❤️</p>
+            <a href="{% url 'my_donations' %}"><button type="button" class="btn">View your Donations</button></a>
+            <a href="{% url 'donation_index' %}" class="back-home">Back Home</a>
+
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
