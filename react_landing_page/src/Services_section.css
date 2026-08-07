@@ -1,0 +1,42 @@
+.Services_section
+{
+    width:100vw;
+    height:570px;
+    /* background-color: #efe7dc; */
+    background-color: #d8d2c8; 
+    /* background-color: #d2cbc0; */
+
+    padding:50px 100px 50px 100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title
+{
+    /* background-color: red; */
+    width:1200px;
+    height:50px;
+    padding:10px;
+    margin-bottom:20px;
+    color:#6b4d43;
+    /* color:#ff7007; */
+    font-weight:700;
+    font-size:60px;
+}
+.list
+{
+    /* background-color: blue; */
+     width:1250px;
+    height:410px;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;   /* allows cards to move to next line if needed */
+    gap: 30px;  
+    padding:10px;
+    
+}
+.our_services
+{
+    font-size:30px;
+    font-weight: 700;
+}

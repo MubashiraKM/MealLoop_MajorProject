@@ -1,0 +1,479 @@
+:root {
+  --green: #1f4f39;
+  --light-green: #3f7f5d;
+  --brown: #5a3b2e;
+  --beige: #e4c9a3;
+  --muted: #cbd5e1;
+  --top-sheet: #4a7a5f;
+  --bottom-sheet: #2e4f3d;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg, #e8f7ea, #d7e5da);
+  color: #111827;
+  margin: 0;
+}
+
+/* App wrapper full width */
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+  background: url("images/image.png") no-repeat center center;
+  background-size: cover;
+  padding: 60px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.hero-text {
+  max-width: 500px;
+  z-index: 2;
+  margin-left: 60px;
+}
+
+.hero-text h1 {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+.hero-text .cta {
+  padding: 16px 32px;
+  border: none;
+  border-radius: 30px;
+  background: var(--beige);
+  color: #333;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Layered Section */
+.section-layer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Light Green Background Layer */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 700px;
+  background: var(--light-green);
+  z-index: 0;
+}
+
+/* Top Sheet (Features) */
+.top-sheet {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 50px auto -40px auto;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: var(--bottom-sheet);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+  color: white;
+  text-align: center;
+}
+
+.feature-icon {
+  font-size: 50px;
+  margin-bottom: 12px;
+}
+
+/* Compost Box */
+.compost-box {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  width: 90%;
+  margin: 100px auto;
+  background: white;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.compost-box header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.compost-box h2 {
+  margin-bottom: 8px;
+  color: var(--green);
+}
+.compost-box p {
+  color: #555;
+  font-size: 15px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+#itemInput {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 16px;
+}
+#askBtn {
+  padding: 12px 18px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.card.green {
+  background: #a8d5b2;
+  color: #1f4f39; /* dark green text */
+}
+
+.card.brown {
+  background: #8b5e3c;
+  color: #ffffff; /* white text */
+}
+
+.card.gold {
+  background: #e6b86a;
+  color: #5a3b2e; /* dark brown text */
+}
+
+.card.dark {
+  background: #444;
+  color: #ffffff; /* white text */
+}
+
+.card.beige {
+  background: #f3e2c7;
+  color: #5a3b2e; /* dark brown text */
+}
+
+.card.image {
+  padding: 0;
+  overflow: hidden;
+  position: relative; /* for text overlay */
+}
+
+.card.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Optional: text overlay for image cards */
+.card.image .text {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.output {
+  border-radius: 12px;
+  padding: 8px 16px;
+  background: #f9fafb;
+  min-height: auto;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.4;
+  white-space: normal; /* allow text to wrap normally */
+}
+
+.output p {
+  display: inline; /* show multiple results in same line */
+  margin: 0 4px 0 0; /* small space between results */
+  padding: 0;
+}
+
+/* Cards Grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom:60px;
+}
+
+/* Individual Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.card h4 {
+  margin: 12px 0 8px;
+  font-size: 1.2rem;
+  color: var(--green);
+}
+.card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.cards-section {
+  max-width: 1200px;
+  margin: 60px auto 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.cards-heading {
+  font-size: 2rem;
+  color: #1f4f39; /* dark green */
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+/* Card link at bottom */
+.card-link {
+  display: inline-block;
+  padding: 8px 16px;
+  /* background: var(--green); */
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card.brown h4,
+.card.brown p {
+  color: white;
+}
+
+.card.green h4,
+.card.green p {
+  color: #1f4f39; /* dark green for light background */
+}
+
+.card.gold h4,
+.card.gold p {
+  color: #5a3b2e; /* dark brown for light background */
+}
+
+.card.beige h4,
+.card.beige p {
+  color: #5a3b2e; /* dark brown for light background */
+}
+
+.card.dark h4,
+.card.dark p {
+  color: white; /* ensures text is readable on dark background */
+}
+
+
+.footer {
+  background-color: #1f4f39; /* dark green */
+  color: white; /* beige/light text */
+  padding: 40px 20px 20px 20px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px;
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  flex: 1 1 250px;
+  
+}
+
+.footer h3, .footer h4 {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer p {
+  line-height: 1.6;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: white; /* gold highlight on hover */
+}
+
+.footer-social .social-icons a {
+  color: white;
+  margin-right: 15px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  border-top: 1px solid #3f7f5d;
+  padding-top: 10px;
+}
+/* 
+.back-home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ffffffcc;
+  color: #2e7d32;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-home-btn i {
+  font-size: 16px;
+}
+
+.back-home-btn:hover {
+  background: #2e7d32;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.fas fa-arrow-left{
+  color:#2e7d32;
+}
+
+.fas fa-arrow-left:hover{
+  color:white;
+} */
+
+
+.back-home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ffffffcc;
+  color: #2e7d32; 
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.back-home-btn i {
+  font-size: 16px;
+}
+
+.back-home-btn:hover {
+  background: #2e7d32;
+  color: #ffffffcc;
+  transform: scale(1.05);
+}

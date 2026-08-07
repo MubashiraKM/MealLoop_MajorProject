@@ -1,0 +1,267 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.about-container {
+  background-color: #D8D2C8;
+  font-family: "Segoe UI", sans-serif;
+  color: #392924;
+  padding: 80px 60px;
+  box-sizing: border-box;
+}
+
+/* About Us Title */
+.about-header-row {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #392924;
+  /* border-bottom: 3px solid #392924; */
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* About Us Content */
+.project-details {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#about_us_content {
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #392924;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* Developer Section */
+.developer-section {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.developer-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #392924;
+  margin-bottom: 40px;
+  /* border-bottom: 3px solid #392924; */
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* Developer Grid - All 4 in one row */
+.developer-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Developer Card */
+.developer-card {
+  background: none;
+  box-shadow: none;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.developer-card:hover {
+  transform: scale(1.05);
+}
+
+.developer-card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.developer-card h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #392924;
+}
+
+.developer-card p {
+  font-size: 0.9rem;
+  color: #5a463e;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .developer-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .project-details {
+    padding: 0 20px;
+  }
+}
+
+#about_us_content_2 {
+  max-width: 1200px;
+  margin: 0 auto 50px auto; /* Centers the text and aligns margins with About Us */
+  line-height: 1.8;
+  font-size: 18px;
+  color: #392924;
+  font-weight: 500;
+  text-align: justify;
+  padding: 0 10px; /* small side padding for better readability */
+}
+
+/* About Content Layout (Text + Image) */
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  /* margin: 0 auto 80px auto; */
+  gap: 50px;
+  flex-wrap: wrap;
+  margin: 0 auto 20px auto;
+}
+
+.project-details {
+  flex: 1.2;
+  min-width: 400px;
+}
+
+.about-image {
+  flex: 0.8;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 550px;
+  /* border-radius: 15px; */
+  object-fit: cover;
+  margin-left:50px;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); */
+}
+
+#about_project_img{
+  width:600px;
+  height:600px;
+}
+
+.about-us-section {
+  width: 100%;
+  background-color: #EFE7DC;
+  /* padding: 80px 60px; */
+  text-align: center;
+}
+
+.about-us-section h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+#about_us_content_2 {
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  text-align: justify;
+  color: #444;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.developer-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.developer-card {
+  /* background: white; */
+  border-radius: 12px;
+  padding: 20px;
+  width: 230px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.developer-card:hover {
+  transform: translateY(-5px);
+}
+
+.developer-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  /* border-radius: 12px; */
+  margin-bottom: 15px;
+}
+
+.about-us-section {
+  background-color: #EFE7DC;
+  width: 100vw; /* full viewport width */
+  margin-left: calc(-1 * (100vw - 100%)/2); /* neutralize parent padding if inside container */
+  padding: 10px 60px 80px 60px; /* reduced top padding from 80px to 40px */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+#about_us_content_2 {
+  max-width: 1200px;
+  margin: 0 auto 50px auto; /* Centers the text and aligns margins with About Us */
+  line-height: 1.8;
+  font-size: 20.6px;
+  color: #392924;
+  font-weight: 550;
+  text-align: justify;
+  padding: 0 10px; /* small side padding for better readability */
+}
+
+.developer-card {
+  background: none;            /* No white box */
+  box-shadow: none;            /* Remove shadow */
+  border: none;                /* No border */
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.developer-card:hover {
+  transform: scale(1.05);      /* Subtle zoom on hover */
+}
+
+.developer-card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;          /* Circular images */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.developer-card h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #392924;
+}
+
+.developer-card p {
+  font-size: 0.9rem;
+  color: #5a463e;
+}
+
+
+

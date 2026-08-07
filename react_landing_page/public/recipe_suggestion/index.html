@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <style>
+    
+.hero {
+  position: relative;
+}
+
+.back-home-btn {
+  position: absolute;
+  top: 20px;
+  right: 230px;
+  background: #ffa500; /* orange on hover */
+  color: #000; /* black text */
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  z-index: 9999; /* 👈 highest priority */
+}
+
+.back-home-btn i {
+  font-size: 16px;
+}
+
+.back-home-btn:hover {
+  background: #000; /* black button background */
+  color: #ffa500; /* orange text/icon */
+  transform: scale(1.05);
+}
+
+  </style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="style.css?v=9">
+</head>
+<body>
+
+  <!-- <a href="{% url 'home' %}" class="back-arrow">←</a> -->
+  
+
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <a href="../index.html" class="back-home-btn">
+    <i class="fas fa-arrow-left"></i> Back Home
+  </a>
+    <div class="hero-text">
+      <button id="get-started-btn">Get Started</button>
+    </div>
+  </div>
+
+  <!-- ✅ Second full-screen image section with search -->
+  <section id="second-banner" class="second-banner">
+    <div class="search-container">
+      <input type="text" id="ingredient" placeholder="Enter ingredients (comma separated)">
+      <button onclick="searchRecipes()">Search</button>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <div id="results"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

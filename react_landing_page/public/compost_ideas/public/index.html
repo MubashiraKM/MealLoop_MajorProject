@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Compost Ideas — Nature Style</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Hero Section -->
+    <section class="hero">
+
+  
+  <a href="http://localhost:5173/index.html" class="back-home-btn">
+    <i class="fas fa-arrow-left" style="color:#2e7d32;"></i> Back Home
+  </a>
+
+  <div class="hero-text">
+    <h1>Compost Smarter,<br> Live Greener</h1>
+    <p>Turn everyday food scraps into valuable compost with simple, practical ideas. Reduce waste, enrich your soil, and make a positive impact.</p>
+    <button class="cta" id="scrollBtn">Get Compost Ideas</button>
+  </div>
+
+    </section>
+
+    <!-- Layered Section -->
+    <div class="section-layer">
+      <!-- Light Green Background Layer -->
+      <div class="background-layer"></div>
+
+      <!-- Top Sheet: Features -->
+      <div class="top-sheet">
+        <section class="features">
+          <div class="feature">
+            <i class="fas fa-trash-alt feature-icon"></i>
+            <h3>Reduce Waste</h3>
+            <p>Turn everyday kitchen scraps into something useful instead of sending them to landfills. Composting can cut household waste by up to 50%!</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-seedling feature-icon"></i>
+            <h3>Nourish the Soil</h3>
+            <p>Compost enriches soil with nutrients, improving plant growth and making your garden thrive naturally.</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-dollar-sign feature-icon"></i>
+            <h3>Save Money</h3>
+            <p>Less fertilizer, less waste bags — composting is both eco-friendly and budget-friendly.</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-globe-americas feature-icon"></i>
+            <h3>Fight Climate Change</h3>
+            <p>By composting, you reduce methane emissions from landfills, making a positive impact on the environment.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Compost App UI (between features and cards) -->
+      <section class="compost-box" id="compost-box">
+        <header>
+          <h2>🌱 Compost Ideas</h2>
+          <p>Type any food or waste item and get practical composting options.</p>
+        </header>
+
+        <div class="controls">
+          <input id="itemInput" type="text" placeholder="e.g. banana peels, expired oats, cooked rice" />
+          <button id="askBtn">Get Compost Ideas</button>
+        </div>
+
+        <div id="output" class="output">
+          <span class="hint">Results will appear here.</span>
+        
+  
+</div>
+        </div>
+      </section>
+
+      <!-- Bottom Sheet: Cards -->
+      <div class="bottom-sheet">
+        <section class="cards-section">
+          <h2 class="cards-heading">Know More About Composting Methods</h2>
+        
+        <section class="cards">
+            <div class="card green">
+  <img src="https://img.choice.com.au/-/media/72efdd78a70b43949eb5f6cbd6267a24.ashx?w=660&jq=80%20660w" alt="Kitchen Compost" />
+  <h4>Kitchen Compost</h4>
+  <p>Use fruit and vegetable scraps, coffee grounds, and eggshells to create nutrient-rich compost for your garden.</p>
+  <a href="https://www.epa.gov/recycle/composting-home" target="_blank" class="card-link">Learn More</a>
+</div>
+
+<div class="card brown">
+  <img src="https://www.bhg.com/thmb/QeD0x9uL6DabVUYRSTYYzsuYf6M=/1920x0/filters:no_upscale():strip_icc()/compost-pile-rake-86cd59eb-8dac48cb789444edb109016d843b7743.jpg" alt="Yard Waste Compost" />
+  <h4>Yard Waste Compost</h4>
+  <p>Leaves, grass clippings, and small branches decompose naturally to enrich soil structure and fertility.</p>
+  <a href="https://content.ces.ncsu.edu/backyard-composting-of-yard-garden-and-food-discards" target="_blank" class="card-link">Learn More</a>
+</div>
+
+<div class="card gold">
+  <img src="https://haatbzaar.com/wp-content/uploads/2024/11/Franco-lombricompost-umido-1024x683.jpg.webp" alt="Vermicomposting" />
+  <h4>Vermicomposting</h4>
+  <p>Specialized worms turn organic waste into premium compost known as worm castings, perfect for potted plants.</p>
+  <a href="https://microbiologynotes.org/vermicomposting-introduction-characteristics-process-types/" target="_blank" class="card-link">Learn More</a>
+</div>
+
+<div class="card dark">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS3AiXAWY5dCL_KkSqPthP_wsIRnA0dUMT_A&s" alt="Bokashi Compost" />
+  <h4>Bokashi Compost</h4>
+  <p>A fermentation method that quickly processes kitchen waste, including cooked foods, using beneficial microbes.</p>
+  <a href="https://www.planetnatural.com/composting-101/indoor-composting/bokashi-composting/" target="_blank" class="card-link">Learn More</a>
+</div>
+
+<div class="card beige">
+  <img src="https://housing.com/news/wp-content/uploads/2022/11/Green-manure-Types-planting-benefits-and-drawbacks.jpg" alt="Green Manure" />
+  <h4>Green Manure</h4>
+  <p>Grow and plow under cover crops to naturally enrich soil with nitrogen and improve its texture.</p>
+  <a href="https://blog.kisansabha.in/index.php/2025/01/18/what-is-green-manure-its-types-and-benefits/" target="_blank" class="card-link">Learn More</a>
+</div>
+
+<div class="card green">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsWBL-Z8GWypMvyQDy48fX3OJGHJCh3UNVoA&s" alt="Compost Tea" />
+  <h4>Compost Tea</h4>
+  <p>Liquid extract from compost that provides a nutrient boost for plants and helps protect against diseases.</p>
+  <a href="https://oldworldgardenfarms.com/2023/05/21/make-compost-tea/" target="_blank" class="card-link">Learn More</a>
+</div>
+
+</section>
+</section>
+
+      </div>
+    </div> <!-- end of section-layer -->
+  </div>
+
+  <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <!-- <h3>Compost Ideas</h3> -->
+      <p style="text-align: center;">&hearts;  Helping you turn everyday waste into nutrient-rich compost. Grow greener, live cleaner, and make a positive impact on the planet   &hearts;</p>
+    </div>
+
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

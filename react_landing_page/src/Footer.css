@@ -1,0 +1,46 @@
+.Footer{
+    width:100vw;
+    height:300px;
+    background-color: #D8D2C8;
+    display:flex;
+    justify-content: center;
+    padding-top:50px;
+}
+.Footer_content{
+    width:800px;
+    height:250px;
+    /* background-color: purple; */
+    /* margin-right:200px; */
+    margin-left:10px;
+}
+.Footer_image{
+    width:400px;
+    height:250px;
+    /* background-color: brown; */
+}
+.Footer_heading{
+    width:800px;
+    height:80px;
+    /* background-color: white; */
+}
+.Footer_data{
+    width:800px;
+    height:170px;
+    /* background-color: blueviolet; */
+    padding-right:30px;
+}
+#heading{
+    font-size: 40px;
+    color:#4C3730;
+    font-weight:700;
+}
+#content{
+    font-size:27px;
+    color:black;
+    color:#4C3730;
+    font-weight:300;
+}
+#food_image2{
+    width:400px;
+    height:350px;
+}

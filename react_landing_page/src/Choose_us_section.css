@@ -1,0 +1,41 @@
+.Choose_us_section{
+    /* background-color: yellow; */
+    /* background-color: #a9968a84; */
+    background-color: #efe7dc;
+    width:100vw;
+    height:500px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title2{
+ width:1200px;
+    height:50px;
+    padding:40px;
+    margin-bottom:10px;
+    color:black;
+    /* background-color: red; */
+}
+.list2
+{
+    width:1200px;
+    height:400px;
+    display:flex;
+    /* justify-content: center; */
+    flex-wrap: wrap; 
+    gap: 30px;  
+    padding:40px;
+    /* background-color: purple; */
+    gap: 100px; 
+    flex-wrap: wrap;
+}
+.choose_us_image{
+    width:300px;
+    height:500px;
+    /* background-color: brown; */
+}
+#food_image2
+{
+    width:265px;
+    height:310px;
+}
